@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  display: none;
+}
+
+.tab {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.tab-inner {
+  position: absolute;
+  width: 300%;
+  height: 100vh;
+  left: 0;
+  transition: 0.5s;
+}
+
+.tab-inner div {
+  position: relative;
+  width: 33.3333%;
+  height: 100vh;
+  text-align: center;
+  float: left;
+}
+
+.tab-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.226);
+}
+
+.tab-button label {
+  width: 100%;
+  height: 5px;
+  bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.tab-inner h1 {
+  font-size: 120px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+  transform: translateY(-200px);
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.tab-inner div:nth-child(1) {
+  background: url(images/photo-01.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.tab-inner div:nth-child(2) {
+  background: url(images/photo-02.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.tab-inner div:nth-child(3) {
+  background: url(images/photo-03.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.tab-inner div:nth-child(1):before,
+.tab-inner div:nth-child(2):before,
+.tab-inner div:nth-child(3):before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  background-attachment: fixed;
+}
+
+.tab-inner div:nth-child(1):before {
+  background: linear-gradient(135deg, gold, transparent);
+}
+
+.tab-inner div:nth-child(2):before {
+  background: linear-gradient(135deg, crimson, transparent);
+}
+
+.tab-inner div:nth-child(3):before {
+  background: linear-gradient(135deg, royalblue, transparent);
+}
+
+input[id="tab2"]:checked ~ .tab-inner {
+  left: -100%;
+}
+input[id="tab3"]:checked ~ .tab-inner {
+  left: -200%;
+}
+
+input[id="tab1"]:checked ~ .tab-button label[for="tab1"],
+input[id="tab2"]:checked ~ .tab-button label[for="tab2"],
+input[id="tab3"]:checked ~ .tab-button label[for="tab3"] {
+  color: crimson;
+}
+
+input[id="tab1"]:checked ~ .tab-inner div:nth-child(1) h1,
+input[id="tab2"]:checked ~ .tab-inner div:nth-child(2) h1,
+input[id="tab3"]:checked ~ .tab-inner div:nth-child(3) h1 {
+  transform: translateY(200px);
+  opacity: 1;
+}
